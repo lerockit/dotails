@@ -1,12 +1,17 @@
 import { GridItem, Image, Text } from '@chakra-ui/core'
 import React from 'react'
-import { IHero } from '../../../interfaces/hero'
 
-const HeroCard: React.FC<{ hero: IHero }> = ({ hero }) => {
+interface Props {
+  image: string
+  text: string
+  color: string
+}
+
+const Card: React.FC<Props> = ({ image, text, color }) => {
   return (
-    <GridItem position="relative" overflow="hidden">
+    <GridItem position="relative" overflow="hidden" h="full">
       <Image
-        src={hero.avatar}
+        src={image}
         w="100%"
         transition="ease-in-out"
         transitionDuration=".1s"
@@ -18,12 +23,14 @@ const HeroCard: React.FC<{ hero: IHero }> = ({ hero }) => {
         right="0"
         left="0"
         pl="2"
-        bg="primary"
+        bg={color}
+        fontWeight="light"
+        isTruncated
       >
-        {hero.name}
+        {text}
       </Text>
     </GridItem>
   )
 }
 
-export default HeroCard
+export default Card

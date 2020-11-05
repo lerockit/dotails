@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Link } from '@chakra-ui/core'
+import { Box, Flex, Link } from '@chakra-ui/core'
 import NextLink from 'next/link'
 import React from 'react'
 import Logo from '../../assets/logo.svg'
@@ -14,7 +14,7 @@ const MainLayout: React.FC = ({ children }) => {
         </NextLink>
       </Flex>
       <Flex as="main" py="8" justifyContent="center">
-        <Box maxW="6xl" w="full">
+        <Box maxW="7xl" w="full">
           {children}
         </Box>
       </Flex>

@@ -8,4 +8,5 @@ export interface IHero {
   slug: string
   avatar: string
   info_url: string
+  main_attribute: string
 }

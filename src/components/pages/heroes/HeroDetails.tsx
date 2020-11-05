@@ -1,16 +1,4 @@
-import {
-  Box,
-  Flex,
-  GridItem,
-  Heading,
-  HStack,
-  Image,
-  Link,
-  list,
-  List,
-  ListItem,
-  Text,
-} from '@chakra-ui/core'
+import { Box, Flex, Heading, HStack, Image, Link, Text } from '@chakra-ui/core'
 import React from 'react'
 import { IHero } from '../../../interfaces/hero'
 

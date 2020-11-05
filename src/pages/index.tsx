@@ -23,7 +23,7 @@ const Home: React.FC = () => {
           <HomeTitle text="Heros" />
         </Link>
       </NextLink>
-      <NextLink href="/wip">
+      <NextLink href="/items">
         <Link
           display="flex"
           w="50%"

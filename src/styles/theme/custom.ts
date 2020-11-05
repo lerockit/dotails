@@ -5,6 +5,8 @@ export const colors = {
     medium: '#1B1B1D',
     light: '#292B2E',
   },
+  blue: '#108896',
+  green: '#29A629',
 }
 
 export const fonts = {

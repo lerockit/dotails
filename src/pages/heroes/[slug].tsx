@@ -1,31 +1,21 @@
-import { Grid, Link, Wrap } from '@chakra-ui/core'
 import { GetServerSideProps } from 'next'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import MainLayout from '../../components/layouts/main'
-import HeroCard from '../../components/pages/heroes/HeroCard'
 import { useApi } from '../../hooks/useApi'
 import { IHero } from '../../interfaces/hero'
 import { api } from '../../services/api'
-import NextLink from 'next/link'
-import { useRouter } from 'next//router'
+import { useRouter } from 'next/router'
 import HeroDetails from '../../components/pages/heroes/HeroDetails'
 
 const fetchHeroesUrl = '/heroes'
 
-const HeroesDetails: React.FC<{ initialHeroes: IHero[] }> = ({
-  initialHeroes,
-}) => {
-  const { data: heroes } = useApi<IHero[]>(fetchHeroesUrl, initialHeroes)
-
+const HeroesDetails: React.FC<{ initialHero: IHero }> = ({ initialHero }) => {
   const { query } = useRouter()
 
-  // WORKAROUND TO ADJUST TO API BUG
-  const [hero, setHero] = useState<IHero>(null)
-
-  useEffect(() => {
-    const hero = heroes.find(hero => hero.slug === query.slug)
-    setHero(hero)
-  }, [query, heroes])
+  const { data: hero } = useApi<IHero>(
+    `${fetchHeroesUrl}?hero=${query.slug}`,
+    initialHero
+  )
 
   return (
     <MainLayout>
@@ -36,7 +26,11 @@ const HeroesDetails: React.FC<{ initialHeroes: IHero[] }> = ({
 
 export default HeroesDetails
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await api.get<IHero[]>(fetchHeroesUrl)
-  return { props: { initialHeroes: data } }
+export const getServerSideProps: GetServerSideProps = async context => {
+  const { data } = await api.get<IHero[]>(fetchHeroesUrl, {
+    params: {
+      hero: context.params.slug,
+    },
+  })
+  return { props: { initialHero: data } }
 }
