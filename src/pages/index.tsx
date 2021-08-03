@@ -3,8 +3,6 @@ import React from 'react'
 
 import NextLink from 'next/link'
 
-import heroesImage from '../assets/heroes.png'
-import itemsImage from '../assets/items.png'
 import HomeImage from '../components/pages/home/HomeImage'
 import HomeTitle from '../components/pages/home/HomeTitle'
 
@@ -19,7 +17,10 @@ const Home: React.FC = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <HomeImage src={heroesImage} bottom="-60px" />
+          <HomeImage
+            src={'https://citizengo.org/sites/default/files/images/test_3.png'}
+            bottom="-60px"
+          />
           <HomeTitle text="Heros" />
         </Link>
       </NextLink>
@@ -31,7 +32,9 @@ const Home: React.FC = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <HomeImage src={itemsImage} />
+          <HomeImage
+            src={'https://citizengo.org/sites/default/files/images/test_3.png'}
+          />
           <HomeTitle text="Items" />
         </Link>
       </NextLink>

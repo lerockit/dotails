@@ -1,7 +1,7 @@
 import { Image, ImageProps } from '@chakra-ui/core'
 import React from 'react'
 
-const HomeImage: React.FC<{ src: Element } & ImageProps> = ({
+const HomeImage: React.FC<{ src: string } & ImageProps> = ({
   src,
   ...rest
 }) => {
