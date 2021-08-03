@@ -1,10 +1,10 @@
 name: Build
 
 on:
-  - worflow_dispatch
-  - push:
-      branches:
-        - test-ci
+  workflow_dispatch:
+  push:
+    branches:
+      - test-ci
 
 jobs:
   build:
